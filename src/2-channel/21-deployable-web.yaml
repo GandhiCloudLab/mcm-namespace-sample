@@ -1,0 +1,102 @@
+---
+# Deployable for Deployment
+apiVersion: app.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  name: gstore-namespace-deployable-deployment-web
+  namespace: gstore-namespace-channel-ns
+  annotations:
+    app.ibm.com/is-local-deployable: "false"  
+  labels:
+    app: gstore-namespace-application
+    subApp: web
+spec:
+  template:
+    kind: Deployment
+    apiVersion: apps/v1
+    metadata:
+      name: gstore-namespace-web
+      namespace: gstore-namespace-app-ns
+    spec:
+      selector:
+        matchLabels:
+          app: gstore-namespace-application
+          subname: web
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: gstore-namespace-application
+            subname: web
+        spec:
+          containers:
+            - name: container-web
+              image: "gandhicloudlab/cpro-bankweb:latest"
+              imagePullPolicy: Always
+              ports:
+                - name: http
+                  containerPort: 8080
+                  protocol: TCP
+                - name: https
+                  containerPort: 8082
+---
+# Deployable for Route
+apiVersion: app.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  name: gstore-namespace-deployable-service-web
+  namespace: gstore-namespace-channel-ns
+  annotations:
+    app.ibm.com/is-local-deployable: "false"  
+  labels:
+    app: gstore-namespace-application
+    subApp: web
+spec:
+  template:
+    kind: Service
+    apiVersion: v1
+    metadata:
+      name: gstore-namespace-web
+      namespace: gstore-namespace-app-ns
+      labels:
+        app: gstore-namespace-application
+        subname: web      
+    spec:
+      type: NodePort
+      ports:
+        - name: my-http
+          port: 8080
+      selector:
+        app: gstore-namespace-application
+        subname: web
+---
+# Deployable for Service
+apiVersion: app.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  name: gstore-namespace-deployable-route-web
+  namespace: gstore-namespace-channel-ns
+  annotations:
+    app.ibm.com/is-local-deployable: "false"  
+  labels:
+    app: gstore-namespace-application
+    subApp: web
+spec:
+  template:
+    kind: Route
+    apiVersion: route.openshift.io/v1
+    metadata:
+      name: gstore-namespace-web
+      namespace: gstore-namespace-app-ns
+      labels:
+        app: gstore-namespace-application
+        subname: web      
+    spec:
+      path: /
+      to:
+        kind: Service
+        name: gstore-namespace-web
+        weight: 100
+      port:
+        targetPort: my-http
+  

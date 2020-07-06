@@ -1,0 +1,16 @@
+---
+apiVersion: app.ibm.com/v1alpha1
+kind: PlacementRule
+metadata:
+  name: gstore-namespace-web
+  namespace: gstore-namespace-subscription-ns
+  labels:
+    app: gstore-namespace-application
+spec:
+  clusterReplicas: 1
+  clusterLabels:
+    matchExpressions:
+      - key: name
+        operator: In
+        values:
+        - deb-ibmcloud-mgd-1
