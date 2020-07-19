@@ -1,11 +1,10 @@
----
 apiVersion: app.ibm.com/v1alpha1
 kind: Channel
 metadata:
   name: gstore-namespace-channel
   namespace: gstore-namespace-channel-ns
   labels:
-    app: gstore-namespace-application
+    mcmapp: gstore-namespace
 spec:
   type: Namespace
   pathname: gstore-namespace-channel-ns

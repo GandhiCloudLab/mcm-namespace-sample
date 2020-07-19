@@ -3,18 +3,18 @@ kind: Namespace
 metadata:
   name: gstore-namespace-channel-ns
   labels:
-    app:  gstore-namespace-application
+    mcmapp: gstore-namespace
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: gstore-namespace-subscription-ns
   labels:
-    app:  gstore-namespace-application
+    mcmapp: gstore-namespace
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: gstore-namespace-app-ns
   labels:
-    app:  gstore-namespace-application
+    mcmapp:  gstore-namespace

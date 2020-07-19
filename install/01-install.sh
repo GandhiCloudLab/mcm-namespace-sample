@@ -5,7 +5,7 @@ echo 'installation started .............................'
 cd ../src
 
 cd 1-prereq
-# oc apply -f 01-namespace.yaml
+oc apply -f 01-namespace.yaml
 
 cd ../2-channel
 oc apply -f 11-channel.yaml

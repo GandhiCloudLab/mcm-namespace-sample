@@ -2,17 +2,16 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: gstore-namespace
+  name: gstore-namespace-application
   namespace: gstore-namespace-subscription-ns
   labels:
-    app: gstore-namespace-application
+    mcmapp: gstore-namespace
 spec:
-  selector:
-    matchExpressions:
-    - key: app
-      operator: In
-      values:
-      - gstore-namespace-application
   componentKinds:
-  - group: app.ibm.com
-    kind: Subscription
+    - group: app.ibm.com
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchLabels:
+      mcmapp: gstore-namespace
+    

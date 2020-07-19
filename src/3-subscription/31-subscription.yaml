@@ -2,26 +2,24 @@
 apiVersion: app.ibm.com/v1alpha1
 kind: Subscription
 metadata:
-  name: subscription-gstore-namespace-web
+  name: gstore-namespace-subscription
   namespace: gstore-namespace-subscription-ns
   labels:
-    app: gstore-namespace-application
+    mcmapp: gstore-namespace
 spec:
   channel: gstore-namespace-channel-ns/gstore-namespace-channel
   packageFilter:
-    version: ">=1.x"
     labelSelector:
       matchLabels:
-        app: gstore-namespace-application
-        subApp: web
+        app: gstore-namespace
+        subapp: sales
   placement:
     placementRef:
-      name: gstore-namespace-web
+      name: gstore-namespace-placementrule
       kind: PlacementRule
       group: app.ibm.com
   overrides:
   - clusterName: "/"
     clusterOverrides:
     - path: "metadata.namespace"
-      value: gstore-namespace-app-ns      
-  
+      value: gstore-namespace-app-ns
