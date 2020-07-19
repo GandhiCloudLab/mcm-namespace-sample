@@ -1,6 +1,6 @@
 # App Deployment using NameSpace ChannelType in IBM Cloud Pak for Multi-Cloud Management
 
-This document helps to deploy a sample MCM application using the NameSpace ChannelType. This  version of the IBM Cloud Pak for Multi-Cloud Management used here is MCM 1.3.0 and 1.3.2.
+This document helps to deploy a sample MCM application using the NameSpace ChannelType. The  version of the IBM Cloud Pak for Multi-Cloud Management used here is MCM 1.3.0/1.3.2.
 
 Application lifecycle is explained in detail at https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/mcm/applications/app_lifecycle.html
 
