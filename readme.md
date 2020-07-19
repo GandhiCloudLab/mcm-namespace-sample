@@ -74,7 +74,7 @@ Here is some details regarding yaml files used in the application located under 
 
 #### Channel
 
-Placeholder for the Deployable yaml files. Here it is pointing to github repo. (To this same repo)
+Placeholder for the Deployable yaml files. The type of the channel is `namepsace`. Here it is pointing to the `gstore-namespace-app-ns` namespace in the hub as it is mentioned in the line number 12. 
 
 <img src="images/10-channel.png" >
 
@@ -92,11 +92,7 @@ To define the target cluster
 
 #### Subscription
 
-To bind the channel with the placement rule. 
-
-Also it specifies the sub path of the deployables under the github repo referred by the channel. Here `repo/gstoresales` is the path.
-
-<img src="images/13-subscription.png" >
+Subscription binds the deploybles available in the channel with the placement rule.
 
 #### Namespace
 
@@ -104,27 +100,21 @@ Namespaces to deploy the app, channel and subscriptions.
 
 <img src="images/14-namespace.png" >
 
-#### Git repo sub path
-
-The git repo sub path where the deployables are stored.
-
-<img src="images/15-gitrepo.png" >
-
 #### Deployment
 
-Kubernetes resource  Deployment
+Kubernetes resource  Deployment. This deployment resource is wrapped by the Deployable resource.
 
 <img src="images/16-deployment.png" >
 
 #### Service
 
-Kubernetes resource  Service
+Kubernetes resource  Service.  This deployment resource is wrapped by the Deployable resource.
 
 <img src="images/17-service.png" >
 
 #### Route
 
-Openshift resource  Route
+Openshift resource  Route.  This deployment resource is wrapped by the Deployable resource.
 
 <img src="images/18-route.png" >
 
