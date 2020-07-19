@@ -11,8 +11,8 @@ spec:
   packageFilter:
     labelSelector:
       matchLabels:
-        app: gstore-namespace
-        subapp: sales
+        mcmapp: gstore-namespace
+        submcmapp: sales
   placement:
     placementRef:
       name: gstore-namespace-placementrule

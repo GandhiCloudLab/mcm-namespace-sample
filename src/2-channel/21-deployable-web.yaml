@@ -9,7 +9,7 @@ metadata:
     app.ibm.com/is-local-deployable: "false"  
   labels:
     mcmapp: gstore-namespace
-    subapp: sales
+    submcmapp: sales
 spec:
   template:
     kind: Deployment
@@ -47,9 +47,10 @@ metadata:
   name: gstore-deployable-service-sales
   namespace: gstore-namespace-channel-ns
   annotations:
-    app.ibm.com/is-local-deployable: "false"  
+    app.ibm.com/is-local-deployable: "false" 
+  labels:
     mcmapp: gstore-namespace
-    subapp: sales
+    submcmapp: sales
 spec:
   template:
     kind: Service
@@ -80,7 +81,7 @@ metadata:
     app.ibm.com/is-local-deployable: "false"  
   labels:
     mcmapp: gstore-namespace
-    subapp: sales
+    submcmapp: sales
 spec:
   template:
     kind: Route
